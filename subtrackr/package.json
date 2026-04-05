@@ -1,0 +1,16 @@
+{
+  "name": "subtrackr",
+  "private": true,
+  "scripts": {
+    "mobile": "pnpm --filter @subtrackr/mobile",
+    "web": "pnpm --filter @subtrackr/web",
+    "core": "pnpm --filter @subtrackr/core",
+    "test": "pnpm -r run test",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json}\""
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  }
+}
