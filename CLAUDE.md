@@ -46,6 +46,26 @@ The **ui-ux-pro-max** skill is installed at `.claude/skills/ui-ux-pro-max/`. It 
 - 57 font pairings, 161 color palettes
 - Stack-specific guidelines including SwiftUI and React Native
 
+## Firecrawl
+
+The **Firecrawl CLI** (v1.12.2) is installed globally via `npx -y firecrawl-cli@latest init`. Eight skills from [firecrawl/cli](https://github.com/firecrawl/cli) are installed at `~/.agents/skills/firecrawl-*/` (symlinked to Claude Code): `firecrawl`, `firecrawl-agent`, `firecrawl-scrape`, `firecrawl-crawl`, `firecrawl-download`, `firecrawl-map`, `firecrawl-search`, `firecrawl-instruct`. Requires `firecrawl login` to authenticate before use.
+
+## Supabase
+
+The **Supabase CLI** (v2.84.2) is installed via Homebrew (`brew install supabase/tap/supabase`). The **supabase-postgres-best-practices** skill is installed from the official [supabase/agent-skills](https://github.com/supabase/agent-skills) repo at `~/.agents/skills/supabase-postgres-best-practices/` (symlinked to Claude Code). It activates automatically for Postgres query writing, schema design, and database optimization.
+
+## Playwright CLI skill
+
+The **playwright-cli** skill is installed at `.claude/skills/playwright-cli/`. It enables browser automation from the terminal using `playwright-cli` (installed globally via npm). Use it for:
+- Opening and navigating web pages
+- Clicking, typing, filling forms, drag-and-drop
+- Taking screenshots and saving PDFs
+- Mocking network requests
+- Managing cookies, localStorage, sessionStorage
+- Recording video and traces
+
+Chrome is configured as the default browser.
+
 ## Architecture
 
 All projects are single self-contained HTML files (HTML + CSS + vanilla JS). No frameworks or external dependencies beyond Google Fonts.

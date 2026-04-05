@@ -44,7 +44,7 @@ SubTrackr ships in six phases, each one building a self-contained layer before t
 
 Plans:
 - [ ] 01-01: Monorepo scaffold — pnpm workspaces, Expo app, Next.js web app, `packages/core` (shared Zod schemas + types), ESLint/Prettier, EAS build config, Supabase project init
-- [ ] 01-02: Auth + secure storage — Supabase Auth wired to Expo with `expo-secure-store` adapter, email/password signup with verification, session persistence, RLS enabled on all tables, full DB schema created (profiles, subscriptions, integrations, email_evidence, transaction_evidence, detection_feedback, sync_jobs, user_entitlements)
+- [x] 01-02: Auth + secure storage — Supabase Auth wired to Expo with `expo-secure-store` adapter, email/password signup with verification, session persistence, RLS enabled on all tables, full DB schema created (profiles, subscriptions, integrations, email_evidence, transaction_evidence, detection_feedback, sync_jobs, user_entitlements)
 - [ ] 01-03: Subscription CRUD + dashboard — manual add/edit/delete/archive UI, service logo library (top 150-200 services), category picker, dashboard with monthly total, annual toggle, subscription list sorted by cost, upcoming charges strip (next 5-7 charges by date)
 - [ ] 01-04: Notifications + monetization hooks — Expo Push + APNs/FCM charge reminder (3-day warning with service name + amount), notification preference toggle, RevenueCat SDK initialized (Expo Dev Build required — not Expo Go), Stripe Checkout wired on web, `user_entitlements` table populated by webhook stubs, free-tier cap enforced (5 subscriptions)
 
@@ -233,7 +233,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Manual Tracker | 0/4 | Not started | - |
+| 1. Foundation + Manual Tracker | 1/4 | In Progress|  |
 | 2. Gmail Auto-Detection | 0/4 | Not started | - |
 | 3. Plaid Bank Sync | 0/4 | Not started | - |
 | 4. Analytics + Monetization | 0/4 | Not started | - |

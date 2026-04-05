@@ -1,6 +1,10 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@subtrackr/core": ["../../packages/core/src/index.ts"],
+      "@subtrackr/supabase/*": ["../../packages/supabase/*"]
+    }
   }
 }

@@ -25,6 +25,8 @@ export type CreateSubscriptionInput = z.infer<typeof createSubscriptionSchema>
 export const updateSubscriptionSchema = createSubscriptionSchema.partial()
 export type UpdateSubscriptionInput = z.infer<typeof updateSubscriptionSchema>
 
+export const subscriptionSchema = createSubscriptionSchema
+
 export interface Subscription {
   id: string
   user_id: string
