@@ -4,6 +4,7 @@ import { Slot, Redirect } from 'expo-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Purchases, { LOG_LEVEL } from 'react-native-purchases'
 import { useAuth } from '../hooks/useAuth'
+import { usePushNotifications } from '../hooks/usePushNotifications'
 
 const queryClient = new QueryClient()
 
@@ -22,6 +23,12 @@ function AuthGuard() {
   return <Redirect href="/(tabs)" />
 }
 
+// Registers push token after auth session is confirmed
+function PushRegistrar() {
+  usePushNotifications()
+  return null
+}
+
 export default function RootLayout() {
   useEffect(() => {
     // RevenueCat initialization (per RESEARCH.md Pattern 2)
@@ -37,6 +44,7 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthGuard />
+      <PushRegistrar />
       <Slot />
     </QueryClientProvider>
   )
