@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+.next/
+dist/
+build/
+*.local
+.env
+.DS_Store
+# npm lock files (we use pnpm)
+package-lock.json
+yarn.lock

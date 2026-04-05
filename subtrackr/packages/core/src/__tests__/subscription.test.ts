@@ -1,0 +1,10 @@
+describe('Subscription CRUD (SUB-01 through SUB-06)', () => {
+  it.todo('SUB-01: should validate createSubscriptionSchema with name + amount')
+  it.todo('SUB-01: should reject subscription with empty name')
+  it.todo('SUB-01: should reject subscription with negative amount')
+  it.todo('SUB-02: should validate updateSubscriptionSchema (partial)')
+  it.todo('SUB-03: should validate billing frequency enum values')
+  it.todo('SUB-04: should validate category enum values')
+  it.todo('SUB-05: should enforce free tier limit of 5 subscriptions')
+  it.todo('SUB-06: should validate subscription status enum values')
+})
