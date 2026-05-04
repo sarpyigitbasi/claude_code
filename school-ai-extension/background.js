@@ -8,7 +8,12 @@ chrome.commands.onCommand.addListener(async (command) => {
   if (!tab?.id) return;
 
   if (command === 'toggle-overlay') {
-    chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+    try {
+      await chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+    } catch {
+      await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['content.js'] });
+      chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+    }
   } else if (command === 'capture-screen') {
     startScreenCapture(tab);
   }

@@ -53,7 +53,17 @@ document.getElementById('open-btn').addEventListener('click', async () => {
     return;
   }
 
-  chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+  // Try sending to existing content script; if tab was open before the
+  // extension loaded the script won't be there yet — inject it first.
+  try {
+    await chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+  } catch {
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['content.js'],
+    });
+    await chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+  }
   window.close();
 });
 
