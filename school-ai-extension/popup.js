@@ -35,10 +35,26 @@ document.getElementById('save-btn').addEventListener('click', async () => {
 
 document.getElementById('open-btn').addEventListener('click', async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  if (tab?.id) {
-    chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
-    window.close();
+  if (!tab?.id) return;
+
+  const url = tab.url || '';
+  const isRestrictedPage = url.startsWith('chrome://') || url.startsWith('about:') ||
+                           url.startsWith('chrome-extension://') || url === '';
+
+  if (isRestrictedPage) {
+    const btn = document.getElementById('open-btn');
+    const original = btn.textContent;
+    btn.textContent = '⚠ Open a webpage first';
+    btn.style.background = '#f38ba8';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+    }, 2500);
+    return;
   }
+
+  chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_OVERLAY' });
+  window.close();
 });
 
 checkOllamaStatus();
